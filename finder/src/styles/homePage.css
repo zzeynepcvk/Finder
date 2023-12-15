@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .search-bar {
+        max-width: 100%;
+        width: calc(100% - 20px);
+    }
+}
+
+.container {
+    max-width: 90%; 
+    text-align: center;
+    padding: 20px;
+}
+
+.search-container {
+    position: relative;
+    display: inline-flex; /* Changed from inline-block to inline-flex */
+    width: 100%;
+}
+
+.home-icon {
+    color: #29788a; /* Renk ayarını isteğinize göre değiştirin */
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 20px; /* Font büyüklüğünü isteğinize göre ayarlayın */
+}
+
+.search-bar {
+    width: 500px; /* Artırılan uzunluk */
+    max-width: 400px;
+    height: 40px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+
+.search-button {
+    border: none;
+/* Changed background color */
+    color: #fff;
+    padding: 10px;
+    border-radius: 0 20px 20px 0; /* Rounded right corners */
+    cursor: pointer;
+}
+
+.user-buttons {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+}
+
+.user-buttons button {
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #29788a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+#search{
+    color: #29788a;
+} /*search icon*/
