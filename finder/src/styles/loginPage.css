@@ -1,3 +1,15 @@
+@import '/Finder/finder/src/scripts/colors.js';
+
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --bej: #f2f2f2;
+    --finder: #29788a;
+    --pinkzey: #d75e8e;
+}
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -54,7 +66,7 @@ input {
 .user-buttons button {
     margin-left: 10px;
     padding: 10px;
-    background-color: #29788a;
+    background-color: var(--finder);
     color: #fff;
     border: none;
     border-radius: 5px;

@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function() {
     var loginForm = document.querySelector('.login-container form');
 
     // Form submit olduğunda çalışacak fonksiyon
-    loginForm.addEventListener('submit', function(event) {
+    loginForm.addEventListener('submit', function(login) {
         // Sayfa yenilemeyi önle
-        event.preventDefault();
+        login.preventDefault();
 
         // Kullanıcının girdiği verileri al
         var email = document.getElementById('email').value;
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
             window.location.href = "/Finder/finder/src/pages/homePage.html";
         } else {
             // Başarısız giriş durumu
-            alert('Giriş başarısız. Lütfen bilgilerinizi kontrol edin ve tekrar deneyin.');
+            alert('Giriş başarısız. Lütfen bilgilerinizi kontrol edin ve tekrar deneyin. ');
         }
     });
 
