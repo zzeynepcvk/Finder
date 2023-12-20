@@ -9,7 +9,6 @@
     --pinkzey: #d75e8e;
 }
 
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -66,7 +65,7 @@ input {
 .user-buttons button {
     margin-left: 10px;
     padding: 10px;
-    background-color: var(--finder);
+    background-color:#29788a;
     color: #fff;
     border: none;
     border-radius: 5px;
