@@ -140,6 +140,36 @@
         }
     </style>
 
+    
+
+    <title>Homepage</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container-1">
+            <a href="/Finder/finder/src/pages/homePage.html">
+                <img src="/Finder/finder/assets/logo.png" alt="Logo" class="logo">
+            </a>
+            <div class="search-container">
+
+                <input type="text" class="search-bar" id="search-bar" placeholder="Search...">
+                <button id="search-button" class="search-button"><i id="search" class="fa-solid fa-magnifying-glass"></i></button>
+                <ul id="itemList" class="item-list">
+                    
+                </ul>
+            </div>
+
+            <div class="user-buttons">
+                <a href="/Finder/finder/src/pages/homePage.html" class="home-icon"><i class="fas fa-home"></i></a>
+                <button><i class="far fa-heart"></i></button>
+                <a href="loginPage.html"><button>Log In</button></a>
+                <a href="signupPage.html"><button>Sign Up</button></a>
+            </div>
+        </div>
+    </div>
+
     <script>
         const container = document.querySelector('.container');
         const emojis = ['🛒', '💻', '🎧', '🎮', '⌨️', '☎️'];
@@ -174,15 +204,15 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             var searchInput = document.getElementById('search-bar');
-            var itemList = document.getElementById('itemList');
-            var items = itemList.getElementsByTagName('li');
+            var searchButton = document.getElementById('search-button');
+            var items = searchButton.getElementsById('itemList');
 
             searchInput.addEventListener('input', function () {
                 updateURL();
                 fetchResults();
             });
 
-            var searchButton = document.querySelector('.search-button');
+        
             searchButton.addEventListener('click', function () {
                 updateURL();
                 fetchResults();
@@ -219,7 +249,7 @@
                     }
                 });
 
-                itemList.style.display = results.data && results.data.length > 0 ? 'block' : 'none';
+                searchButton.style.display = results.data && results.data.length > 0 ? 'block' : 'none';
             }
 
             function redirectToProductPage() {
@@ -227,7 +257,7 @@
                 window.location.href = productPageUrl;
             }
 
-            itemList.addEventListener('click', function (event) {
+            items.addEventListener('click', function (event) {
                 if (event.target.tagName === 'LI') {
                     const clickedResult = event.target.textContent;
                     searchInput.value = clickedResult;
@@ -238,39 +268,6 @@
             });
         });
     </script>
-
-    <title>Homepage</title>
-</head>
-
-<body>
-
-    <div class="container">
-        <div class="container-1">
-            <a href="/Finder/finder/src/pages/homePage.html">
-                <img src="/Finder/finder/assets/logo.png" alt="Logo" class="logo">
-            </a>
-            <div class="search-container">
-
-                <input type="text" class="search-bar" id="search-bar" placeholder="Search...">
-                <button class="search-button"><i id="search" class="fa-solid fa-magnifying-glass"></i></button>
-                <ul id="itemList" class="item-list">
-                    <li>süpürge</li>
-                    <li>projeksiyon</li>
-                    <li>ütü</li>
-                    <li>bilgisayar</li>
-                    <li>telefon</li>
-                </ul>
-            </div>
-
-            <div class="user-buttons">
-                <a href="/Finder/finder/src/pages/homePage.html" class="home-icon"><i class="fas fa-home"></i></a>
-                <button><i class="far fa-heart"></i></button>
-                <a href="loginPage.html"><button>Log In</button></a>
-                <a href="signupPage.html"><button>Sign Up</button></a>
-            </div>
-        </div>
-    </div>
-
 </body>
 
 </html>
