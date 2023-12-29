@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/bb0434a0af.js" crossorigin="anonymous"></script>
     <style>
         :root {
             --primary-color: #3498db;
@@ -205,7 +206,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             var searchInput = document.getElementById('search-bar');
             var searchButton = document.getElementById('search-button');
-            var items = searchButton.getElementsById('itemList');
+            var items = document.getElementById('itemList');
 
             searchInput.addEventListener('input', function () {
                 updateURL();
@@ -238,19 +239,20 @@
             }
 
             function displayResults(results) {
-                items = Array.from(items);
+            items.innerHTML = '';
 
-                items.forEach((item, index) => {
-                    if (results.data && results.data[index]) {
-                        item.textContent = results.data[index].title;
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+            if (results.data && results.data.length > 0) {
+                results.data.forEach(result => {
+                    const listitemleri = document.createElement('li');
+                    listitemleri.textContent = result.title;
+                    items.appendChild(listitemleri);
                 });
-
-                searchButton.style.display = results.data && results.data.length > 0 ? 'block' : 'none';
+            } else {
+                const listitemleri = document.createElement('li');
+                listitemleri.textContent = 'No results found.';
+                items.appendChild(listitemleri);
             }
+        }
 
             function redirectToProductPage() {
                 const productPageUrl = 'product.html';

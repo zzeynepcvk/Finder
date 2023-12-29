@@ -1,5 +1,5 @@
 const container = document.querySelector('.container');
-const emojis = ['🛒', '💻', '🎧', '🎮', '⌨️', '☎️'];
+const emojis = ['🛒', '💻', '🎧', '🎮', '⌨️', '☎️','🔍'];
 
 function addEmoji() {
  const emoji = document.createElement('div');
