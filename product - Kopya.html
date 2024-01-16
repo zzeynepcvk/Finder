@@ -1,0 +1,55 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Information</title>
+</head>
+<body>
+    <h1>Product Information</h1>
+
+    <div id="productInfo"></div>
+
+    <script>
+        // API'ye istek at
+        async function getProductInfo() {
+            try {
+                const productName = document.title; // Başlık (title) içeriğini kullan
+
+                const response = await fetch('http://localhost:5000/get_product_info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ product_name: productName }),
+                });
+
+                const data = await response.json();
+
+                // HTML içeriğini güncelle
+                const productInfoDiv = document.getElementById('productInfo');
+                if (data.product_prices) {
+                    const product = data.product_prices[0];
+                    productInfoDiv.innerHTML = `
+                        <h2>${product[3]}</h2>
+                        <p><strong>Link:</strong> <a href="${product[4]}" target="_blank">${product[4]}</a></p>
+                        <p><strong>Price:</strong> $${product[5]}</p>
+                    `;
+                } else {
+                    productInfoDiv.innerHTML = `<p><strong>Error:</strong> ${data.error}</p>`;
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                // Hata durumunda kullanıcıya bilgi ver
+                const productInfoDiv = document.getElementById('productInfo');
+                productInfoDiv.innerHTML = `<p><strong>Error:</strong> ${error.message}</p>`;
+            }
+        }
+
+        // Sayfa yüklendiğinde fonksiyonu çağır
+        document.addEventListener('DOMContentLoaded', getProductInfo);
+    </script>
+</body>
+</html>
